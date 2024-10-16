@@ -7,3 +7,7 @@ A small weblog implementation built in Django and based very much on [Simon Will
 As Simpon said:
 
 > It's been a while since I've built a new blog implementation in Django!
+
+## Navalogue
+
+A "travelogue" of my journey in a new role. ye,s I had to write a whole new blog implementation. I blame cutting my webdev teeth in the Blogging Age.
