@@ -1,0 +1,27 @@
+{% extends "weblog/navalogue/base.jinja" %}
+
+{% block extrahead %}
+    {% if entry.card_image %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ entry.card_image }}">
+    {% elif entry.image %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ entry.image }}">
+    {% else %}
+<meta name="twitter:card" content="summary">
+    {% endif %}
+<meta name="twitter:creator" content="@datasetteproj">
+<meta property="og:url" content="{{ request.tenant.domain }}{{ request.path }}">
+<meta property="og:title" content="{{ entry.title }} - Navalogue">
+    {% if entry.card_image %}<meta property="og:image" content="{{ entry.card_image }}">{% endif %}
+<meta property="og:type" content="article">
+<meta property="og:description" content="{{ entry.summary_text }}">
+    {% if entry.is_draft %}
+<meta name="robots" content="noindex">
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+{% include "weblog/navalogue/_entry.jinja" %}
+{% endblock %}

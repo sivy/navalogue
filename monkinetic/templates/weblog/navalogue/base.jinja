@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>{% block title %}Navalogue{% endblock %}</title>
+    <meta name="description" content="Logging my govtech and management journey at Nava">
+    <meta name="author" content="Steve Ivy">
+
+    <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Glegoo:400,700" rel="stylesheet" type="text/css">
+
+    <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="{{ static('css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ static('/css/skeleton.css') }}">
+    <link rel="stylesheet" href="{{ static('/css/navalogue.css') }}">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+        integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script type="text/javascript">
+        // Helper function
+        let domReady = (cb) => {
+            document.readyState === 'interactive' || document.readyState === 'complete'
+                ? cb()
+                : document.addEventListener('DOMContentLoaded', cb);
+        };
+
+        domReady(() => {
+            // Display body when DOM is loaded
+            document.body.style.visibility = 'visible';
+        });
+    </script>
+
+    {% block extrahead %}{% endblock %}
+</head>
+
+<body>
+    <script>0</script>
+    <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="container" id="top">
+        <div class="row">
+            <div class="one column">&nbsp;</div>
+            <div class="ten columns">
+                <header>
+                <h1><a href="/">Navalogue</a></h1>
+                <em>{% include 'weblog/navalogue/_subhead.jinja' %}</em>
+                </header>
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="one column">&nbsp;</div>
+        </div>
+        <div class="row">
+            <div class="one column">&nbsp;</div>
+            <div class="ten columns" id="powered-by">
+            <a href="/">Navalogue</a> is powered by python, <a href="https://django.org">Django</a>, and <a href="https://fly.io">fly.io</a>.
+            </div>
+            <div class="one column">&nbsp;</div>
+        </div>
+    </div>
+
+    <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+</html>

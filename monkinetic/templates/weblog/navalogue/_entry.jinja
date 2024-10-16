@@ -1,0 +1,21 @@
+<div class="entry">
+    {% if entry.image %}
+        <img class="entry-image" style="width: 100%;" src="/{{ entry.image }}" alt="{{ entry.title }}">
+    {% endif %}
+        {% if entry.title %}
+            <h2><a href="{{ entry.get_absolute_url() }}"/>{{ entry.title }}</a></h2>
+        {% endif %}
+    <div>{{ entry.body_rendered }}</div>
+    {% if entry.tags.objects %}
+        {% for tag in entry.tags %}
+            <a href="{{ tag.slug }}">{{ tag.name }}</a>
+        {% endfor %}
+    {% endif %}
+    <div class="meta">
+        <span class="entry-date">Posted <a href="{{ entry.get_absolute_url() }}"/>{{ entry.created.strftime('%B %d, %Y %H:%M') }}</a></span>
+        <span class="entry-authors">by {% for author in entry.authors.all() %}{{ author.username }}{% if not loop.last %}. {% endif %}{% endfor %}</span>
+        {% if entry.tags.count() > 0 %}
+        <div class="entry-tags">Tags: {% for tag in entry.tags.all() %}{{ tag.name }}{% if not loop.last %}. {% endif %}{% endfor %}</div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,8 @@
+psycopg2
+Django>=5.1
+environs[django]==9.5.0
+django-jinja
+markdown
+Pillow
+whitenoise==6.4.0
+environs[django]==9.5.0

@@ -1,0 +1,19 @@
+{% extends 'weblog/navalogue/base.jinja' %}
+
+
+{% block content %}
+    {% if perms.weblog.add_entry %}
+    <form method="post" action="{{ url('weblog:add_entry') }}">
+        {% csrf_token %}
+        {{ form.as_p() }}
+        <div>
+            <button type="submit">Post</button>
+        <form>
+    {% endif %}
+    {% for entry in entries %}
+        {% include 'weblog/navalogue/_entry.jinja' %}
+    {% endfor %}
+    {% if has_more %}
+        <a href="{{ url_for('index', page=page+1) }}">Next</a>
+    {% endif %}
+{% endblock %}
